@@ -1,0 +1,10 @@
+int sum =0;
+		Scanner in = new Scanner(System.in);
+	    map = getNumber(in, "Number: ", "Rupees: ");
+		for (Integer keyvalues : map.keySet())
+		{
+			System.out.println(keyvalues + " = "+ '\u20B9' + map.get(keyvalues));
+			sum = sum + map.get(keyvalues);
+		}
+		System.out.println("Total : " + '\u20B9' + sum);
+		System.out.println("Have a nice day!");

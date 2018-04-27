@@ -1,0 +1,69 @@
+static TreeMap<Integer, Integer> map;
+	public static TreeMap<Integer, Integer> getNumber(Scanner in, String EnterNumber, String EnterRupees) {
+		map = new TreeMap<Integer, Integer>();
+	    System.out.print(EnterNumber); 
+	    String NumberText = "", RupeesText = "";
+	    while (true) { 
+	    	NumberText = in.nextLine();
+	        if (NumberText.equalsIgnoreCase("Exit"))
+	        {
+	        	break;
+	        }
+	        if(isInteger(NumberText))
+	        {
+	        	if (Integer.parseInt(NumberText) > 0 & Integer.parseInt(NumberText) < 101)
+	        	{
+	        		boolean rupeeflag = true;
+	        		System.out.print(EnterRupees);
+	        		while (rupeeflag == true)
+	        		{
+		        		
+		        		RupeesText = in.nextLine();
+		        		if(isInteger(RupeesText))
+		    	        {
+		        			if (Integer.parseInt(RupeesText) > 0)
+		        			{
+		        				if(!(map.get(Integer.parseInt(NumberText))==null))
+		        				{
+		        					map.put(Integer.parseInt(NumberText), map.get(Integer.parseInt(NumberText))+Integer.parseInt(RupeesText));
+		        				}
+		        				else
+		        				{
+		        				map.put(Integer.parseInt(NumberText), Integer.parseInt(RupeesText));
+		        				}
+		        				rupeeflag = false;
+		        			}
+//		        			else
+//		        			{
+//		        				System.out.print("Incorrect Rupees, try again : ");
+//		        			}
+		    	        }
+//		        		else
+//		        		{
+//		        			System.out.print("Incorrect Rupees, try again : ");
+//		        		}
+	        		}
+	        	}
+//	        	else
+//	        	{
+//	        		System.out.print("Incorrect number, try again : ");
+//	        	}
+	        }
+//	        else
+//	        {
+//	        	System.out.print("Incorrect number, try again : ");
+//	        }
+	        System.out.print(EnterNumber);
+	    } 
+	    return map; 
+	}
+
+	
+	protected static boolean isInteger(String str) { 
+	    try {
+	        Integer.parseInt(str);
+	        return true;
+	    } catch(NumberFormatException e) {
+	        return false; 
+	    }
+	}
