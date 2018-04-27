@@ -1,0 +1,49 @@
+AppiumDriverLocalService service;
+	AppiumDriver<MobileElement> driver;
+	WebDriverWait wait10;
+	
+ 
+      TouchAction a1 = new TouchAction (driver);
+      a1.tap(driver.findElement(By.xpath("//XCUIElementTypeOther[@name='CCCCC']/XCUIElementTypeLink[1]"))).perform();
+      
+      driver.swipe(25, 96, 0, 25, 200);
+      driver.findElement(By.xpath("//XCUIElementTypeButton[@name='CREATE']")).click();
+      
+  @BeforeMethod
+  public void beforeMethod() throws MalformedURLException {
+	  DesiredCapabilities capabilities = new DesiredCapabilities();
+      capabilities.setCapability("deviceName", "iPhone");
+      capabilities.setCapability("platformVersion", "10.3.3");
+      capabilities.setCapability("platformName", "IOS");
+     // capabilities.setCapability("udid", "0c8064622390ea5d94c34c1f1212f17f85f73700");
+//      capabilities.setCapability(CapabilityType.BROWSER_NAME, "safari");
+      capabilities.setCapability("bundleId", "com.dissy.project");
+     // driver = new IOSDriver<WebElement>(service.getUrl(), capabilities);
+      driver = new IOSDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+// ---------------saucelabs--------------------        
+//DesiredCapabilities caps = DesiredCapabilities.iphone();
+//caps.setCapability("appiumVersion", "1.7.1");
+//caps.setCapability("deviceName", "iPhone 6 Plus Simulator");
+//caps.setCapability("deviceOrientation", "portrait");
+//caps.setCapability("platformVersion", "10.3");
+//caps.setCapability("platformName", "iOS");
+////caps.setCapability("app", "sauce-storage:App.zip");
+//caps.setCapability("browserName", "safari");
+//caps.setCapability("bundleId", "com.dissy.project");
+// caps.setCapability("app", "https://s3-us-west-2.amazonaws.com/ios-st/project/index.html");
+//      driver = new IOSDriver<MobileElement>(new URL("https://username:accesskey@ondemand.saucelabs.com:443/wd/hub"), caps);
+      driver.manage().timeouts().implicitlyWait(80, TimeUnit.SECONDS);
+//      driver.get("https://google.com");
+
+// Simulator settings
+// DesiredCapabilities capabilities = new DesiredCapabilities();
+////       capabilities.setCapability(CapabilityType.BROWSER_NAME, "safari");
+//       capabilities.setCapability("app", "/Users/wsadmin/Library/Developer/Xcode/DerivedData/project-fhbckofpyhzychblhxxyichrqdzh/Build/Products/Debug-iphonesimulator/project.app");
+////       capabilities.setCapability("bundleid", "com.dissy.project");
+//       capabilities.setCapability("deviceName", "iPhone Simulator");
+//       capabilities.setCapability("platformVersion", "10.3");
+//       capabilities.setCapability("platformName", "IOS");
+//       driver = new IOSDriver<WebElement>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+//       driver.manage().timeouts().implicitlyWait(80, TimeUnit.SECONDS);
+
+
